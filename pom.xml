@@ -14,7 +14,7 @@
         <module>lvee-api</module>
         <module>lvee-search</module>
         <module>lvee-security</module>
-        <module>lvee-lvee</module>
+        <module>lvee-portal</module>
     </modules>
 
     <properties>
