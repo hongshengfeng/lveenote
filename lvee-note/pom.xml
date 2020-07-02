@@ -8,12 +8,23 @@
         <version>1.0.1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>lvee-api</artifactId>
-    <version>${lvee-api.version}</version>
+    <artifactId>lvee-note</artifactId>
+    <version>1.0.1</version>
     <packaging>jar</packaging>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.keduw</groupId>
+            <artifactId>lvee-common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.keduw</groupId>
+            <artifactId>lvee-api</artifactId>
+        </dependency>
+    </dependencies>
+
     <build>
-        <finalName>lvee-api</finalName>
+        <finalName>lvee-note</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
