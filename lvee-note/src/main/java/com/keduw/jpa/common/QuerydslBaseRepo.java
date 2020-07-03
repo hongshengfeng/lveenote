@@ -1,6 +1,6 @@
 package com.keduw.jpa.common;
 
-import com.keduw.app.EMNameDef;
+import com.keduw.app.EMFactoryDef;
 import com.querydsl.core.types.EntityPath;
 import com.querydsl.core.types.Path;
 import com.querydsl.core.types.Predicate;
@@ -21,7 +21,7 @@ public abstract class QuerydslBaseRepo<T, Q extends EntityPath<T>> {
     @Autowired
     protected JPAQueryFactory queryFactory;
 
-    @PersistenceContext(unitName = EMNameDef.NOTE_EM)
+    @PersistenceContext(unitName = EMFactoryDef.NOTE_EM)
     protected EntityManager manager;
 
     public abstract Q getEntityPath();
