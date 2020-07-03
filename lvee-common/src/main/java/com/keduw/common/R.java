@@ -2,6 +2,7 @@ package com.keduw.common;
 
 import com.keduw.exception.Errno;
 import com.keduw.exception.Result;
+import com.keduw.util.JsonUtils;
 
 /**
  * 统一数据返回
@@ -12,7 +13,7 @@ import com.keduw.exception.Result;
  */
 public class R {
 
-    public static Result success(){
+    public static String success(){
         return success(null);
     }
 
@@ -21,16 +22,16 @@ public class R {
      * @param date
      * @return
      */
-    public static Result success(Object date){
-        Result result = new Result();
-        result.setSuccess(true);
-        result.setCode(Errno.OK);
-        result.setMsg("success");
-        result.setData(date);
-        return result;
+    public static String success(Object date){
+        Result info = new Result();
+        info.setSuccess(true);
+        info.setCode(Errno.OK);
+        info.setMsg("success");
+        info.setData(date);
+        return JsonUtils.objectToJson(info);
     }
 
-    public static Result error(){
+    public static String error(){
         return error(null);
     }
 
@@ -39,21 +40,21 @@ public class R {
      * @param msg
      * @return
      */
-    public static Result error(String msg){
-        Result result = new Result();
-        result.setSuccess(false);
-        result.setCode(Errno.ERROR);
-        result.setMsg(msg);
-        result.setData(null);
-        return result;
+    public static String error(String msg){
+        Result info = new Result();
+        info.setSuccess(false);
+        info.setCode(Errno.ERROR);
+        info.setMsg(msg);
+        info.setData(null);
+        return JsonUtils.objectToJson(info);
     }
 
-    public static Result info(int code, String msg){
+    public static String info(int code, String msg){
         return info(true, code, msg);
     }
 
 
-    public static Result info(boolean rt, int code, String msg){
+    public static String info(boolean rt, int code, String msg){
         return info(rt, code, msg, null);
     }
 
@@ -61,12 +62,12 @@ public class R {
      * 返回自定义状态信息
      * @return
      */
-    public static Result info(boolean rt, int code, String msg, Object date){
+    public static String info(boolean rt, int code, String msg, Object date){
         Result info = new Result();
         info.setSuccess(rt);
         info.setCode(code);
         info.setMsg(msg);
         info.setData(date);
-        return info;
+        return JsonUtils.objectToJson(info);
     }
 }

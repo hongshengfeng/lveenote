@@ -4,6 +4,7 @@ import com.keduw.common.R;
 import com.keduw.util.Request;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
@@ -16,7 +17,7 @@ import javax.servlet.http.HttpServletRequest;
  * @author hongshengfeng
  * @date 2020.01.24
  */
-@RestControllerAdvice
+@ControllerAdvice
 public class ExceptionHandle {
 
     private static final Logger logger = LoggerFactory.getLogger(ExceptionHandle.class);
@@ -24,18 +25,21 @@ public class ExceptionHandle {
     /**
      * 判断是否已定义的错误，不是则由未知错误代替
      * ajax请求的异常返回错误信息，页面请求异常调整到统一处理页面
+     * @param request
+     * @param e
+     * @return
      */
     @ExceptionHandler(value = Exception.class)
-    public Object exceptionGet(HttpServletRequest request, Exception e){
+    public String exceptionGet(HttpServletRequest request, Exception e){
         if(Request.isAjax(request)){
-            logger.error("err", e);
+            logger.error("系统错误", e);
             return R.error("系统错误");
         }
         if(e instanceof DescribeException){
             DescribeException desc = (DescribeException) e;
             return R.info(desc.getCode(), desc.getMessage());
         }else{
-            logger.error("err", e);
+            logger.error("系统错误", e);
             return R.error(e.getMessage());
         }
     }

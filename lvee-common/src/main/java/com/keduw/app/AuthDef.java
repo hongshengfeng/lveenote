@@ -9,11 +9,14 @@ package com.keduw.app;
  */
 public class AuthDef {
 
-    public static final String ACCT = "voAdmin";     //用户名
-    public static final String PASSWORD = "123456"; //密码
+    /**
+     * 用户名
+     */
+    public static final String ACCT = "admin";
 
-    public static String initInfo(){
-        return ACCT + ":" + PASSWORD;
-    }
+    /**
+     * 密码
+     */
+    public static final String PASSWORD = "xian123";
 
 }

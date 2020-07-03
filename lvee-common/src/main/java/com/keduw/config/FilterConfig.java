@@ -11,7 +11,7 @@ import javax.servlet.DispatcherType;
 /**
  * xss过滤
  *
- * @author 柏渡人
+ * @author hongshengfeng
  * @date 2020.01.30
  */
 @Configuration

@@ -1,4 +1,4 @@
-package com.keduw.config;
+/*package com.keduw.config;
 
 import com.keduw.app.AuthDef;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -28,4 +28,4 @@ public class AuthConfig extends WebSecurityConfigurerAdapter {
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     }
 
-}
+}*/
