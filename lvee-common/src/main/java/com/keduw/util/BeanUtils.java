@@ -11,14 +11,16 @@ import static java.lang.String.format;
  * 实现两个实体类属性之间的复制，属性名大小写不铭感，但要求实体类属性的类型相同
  * 例如：Integer -> int 会转换失败
  *
- * @author <a href="hongshengfeng@wxchina.com">hongshengfeng</a>
- * @Date 2020/4/24 10:23
+ * @author hongshengfeng
+ * @Date 2020.07.05
  * @Version 1.0.0
- * @description:
  */
 public class BeanUtils {
 
     public static <T> T copyProperties(Object source, Class<T> targetClass) {
+        /*if(source == null){
+            return null;
+        }*/
         T t = null;
         try {
             t = targetClass.newInstance();

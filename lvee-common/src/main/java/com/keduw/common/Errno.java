@@ -1,4 +1,4 @@
-package com.keduw.exception;
+package com.keduw.common;
 
 /**
  * 状态码

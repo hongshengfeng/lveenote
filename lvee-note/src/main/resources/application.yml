@@ -50,3 +50,4 @@ rockertmq:
 
 lvee:
   redis: true
+  security: false

@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @RestController
 @RequestMapping("/note")
 public class NoteController extends BaseController{
@@ -17,8 +20,10 @@ public class NoteController extends BaseController{
     private NoteService noteService;
 
     @GetMapping("/info/{uuid}")
-    public String info(@PathVariable("uuid") String uuid) throws Exception{
-        NoteDTO info = noteService.info(uuid);
-        return R.success(info);
+    public R info(@PathVariable("uuid") String uuid) throws Exception{
+        NoteDTO note = noteService.info(uuid);
+        Map<String, Object> info = new HashMap<>();
+        info.put("data", note);
+        return R.ok(info);
     }
 }
