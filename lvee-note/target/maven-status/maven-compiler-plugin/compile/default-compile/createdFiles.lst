@@ -1,0 +1,17 @@
+com\keduw\jpa\dao\NoteDao.class
+com\keduw\config\CorsConfig.class
+com\keduw\config\JPAConfig.class
+com\keduw\entity\LvNoteEntity.class
+com\keduw\entity\QLvWishEntity.class
+com\keduw\jpa\common\QuerydslBaseRepo.class
+com\keduw\controller\BaseController.class
+com\keduw\entity\QLvNoteEntity.class
+com\keduw\entity\QLvUserEntity.class
+com\keduw\entity\QLvTermEntity.class
+com\keduw\entity\LvUserEntity.class
+com\keduw\entity\LvWishEntity.class
+com\keduw\NoteApplication.class
+com\keduw\entity\LvTermEntity.class
+com\keduw\entity\QLvTermMemberEntity.class
+com\keduw\jpa\common\CoreDao.class
+com\keduw\entity\LvTermMemberEntity.class

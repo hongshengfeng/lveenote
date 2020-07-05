@@ -1,7 +1,5 @@
 package com.keduw.service;
 
-import com.keduw.model.User;
-
 /**
  * 用户相关数据处理接口
  *
@@ -11,8 +9,5 @@ import com.keduw.model.User;
  */
 public interface UserService {
 
-    User getInfo(int id);
-
-    User getInfoByDsl(int id);
 
 }

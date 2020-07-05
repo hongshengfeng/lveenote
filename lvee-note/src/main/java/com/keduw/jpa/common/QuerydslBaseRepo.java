@@ -1,6 +1,5 @@
 package com.keduw.jpa.common;
 
-import com.keduw.app.EMFactoryDef;
 import com.querydsl.core.types.EntityPath;
 import com.querydsl.core.types.Path;
 import com.querydsl.core.types.Predicate;
@@ -13,16 +12,15 @@ import org.hibernate.tuple.entity.EntityBasedBasicAttribute;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.lang.reflect.Field;
 
 public abstract class QuerydslBaseRepo<T, Q extends EntityPath<T>> {
 
     @Autowired
-    protected JPAQueryFactory queryFactory;
+    public JPAQueryFactory queryFactory;
 
-    @PersistenceContext(unitName = EMFactoryDef.NOTE_EM)
-    protected EntityManager manager;
+    @Autowired
+    public EntityManager entityManager;
 
     public abstract Q getEntityPath();
 
@@ -60,7 +58,7 @@ public abstract class QuerydslBaseRepo<T, Q extends EntityPath<T>> {
         try {
             EntityPath<T> entityPath = getEntityPath();
             JPAUpdateClause clause = queryFactory.update(entityPath);
-            MetamodelImplementor model = (MetamodelImplementor) manager.getMetamodel();
+            MetamodelImplementor model = (MetamodelImplementor) entityManager.getMetamodel();
             EntityPersister entityPersister = model.entityPersister(entity.getClass());
             for (AttributeDefinition attr : entityPersister.getAttributes()) {
                 // 判断是否是数据库字段属性
