@@ -4,8 +4,7 @@ package com.keduw.exception;
  * 自定义异常
  * 
  * @author hongshengfeng
- * @date 2020.01.23
- * @version 1.0.1
+ * @date 2020/01/23
  */
 public class RRException extends RuntimeException {
 

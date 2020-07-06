@@ -6,8 +6,7 @@ import javax.servlet.http.HttpServletRequest;
  * 请求工具类
  *
  * @author hongshengfeng
- * @date 2020.01.23
- * @version 1.0.1
+ * @date 2020/01/23
  */
 public class Request {
 

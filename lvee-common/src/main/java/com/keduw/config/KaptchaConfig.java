@@ -14,8 +14,7 @@ import java.util.Properties;
  * 验证码配置
  *
  * @author hongshengfeng
- * @date 2020.07.03
- * @version 1.0.1
+ * @date 2020/07/03
  */
 @Configuration
 @ConditionalOnProperty(prefix = "lvee", name = "kaptcha", havingValue = "true")

@@ -4,8 +4,7 @@ package com.keduw.util;
  * 数据格式化工具
  *
  * @author hongshengfeng
- * @date 2020.01.23
- * @version 1.0.1
+ * @date 2020/01/23
  */
 public class Parser {
 

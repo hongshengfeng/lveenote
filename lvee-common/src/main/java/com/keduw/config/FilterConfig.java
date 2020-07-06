@@ -12,7 +12,7 @@ import javax.servlet.DispatcherType;
  * xss过滤
  *
  * @author hongshengfeng
- * @date 2020.01.30
+ * @date 2020/01/30
  */
 @Configuration
 public class FilterConfig {

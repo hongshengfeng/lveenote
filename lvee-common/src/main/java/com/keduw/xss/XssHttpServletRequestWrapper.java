@@ -18,8 +18,7 @@ import java.util.Map;
  * XSS过滤处理
  *
  * @author hongshengfeng
- * @date 2020.07.02
- * @version 1.0.1
+ * @date 2020/07/02
  */
 public class XssHttpServletRequestWrapper extends HttpServletRequestWrapper {
 

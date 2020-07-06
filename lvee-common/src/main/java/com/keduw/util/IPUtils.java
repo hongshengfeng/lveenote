@@ -10,8 +10,7 @@ import javax.servlet.http.HttpServletRequest;
  * 获取用户的IP地址
  * 
  * @author hongshengfeng
- * @date 2020.01.30
- * @version 1.0.1
+ * @date 2020/01/30
  */
 public class IPUtils {
 

@@ -7,8 +7,7 @@ import java.io.Serializable;
 
 /**
  * @author hongshengfeng
- * @date 2020.07.03
- * @version 1.0.1
+ * @date 2020/07/03
  * @param <T>
  * @param <ID>
  */

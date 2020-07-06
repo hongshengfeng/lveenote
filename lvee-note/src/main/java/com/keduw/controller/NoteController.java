@@ -12,6 +12,10 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * @author hongshengfeng
+ * @date 2020/07/06
+ */
 @RestController
 @RequestMapping("/note")
 public class NoteController extends BaseController{

@@ -4,8 +4,7 @@ import java.sql.Date;
 
 /**
  * @author hongshengfeng
- * @date 2020.07.05
- * @version 1.0.1
+ * @date 2020/07/05
  */
 
 public class NoteDTO {

@@ -10,8 +10,7 @@ import org.springframework.stereotype.Component;
  * 外部获取bean对象
  *
  * @author hongshengfeng
- * @date 2020.01.23
- * @version 1.0
+ * @date 2020/01/23
  */
 @Component
 public class ContextUtils implements ApplicationContextAware{

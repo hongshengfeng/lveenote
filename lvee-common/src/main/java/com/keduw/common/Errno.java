@@ -4,8 +4,7 @@ package com.keduw.common;
  * 状态码
  *
  * @author hongshengfeng
- * @date 2020.07.02
- * @version 1.0
+ * @date 2020/07/02
  */
 public class Errno {
 

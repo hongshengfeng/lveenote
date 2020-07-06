@@ -5,10 +5,9 @@ import org.slf4j.LoggerFactory;
 
 /**
  * @author hongshengfeng
- * @date 2020.07.03
- * @version 1.0.1
+ * @date 2020/07/03
  */
 public class BaseController {
 
-    public static final Logger logger = LoggerFactory.getLogger(BaseController.class);
+    protected static final Logger logger = LoggerFactory.getLogger(BaseController.class);
 }

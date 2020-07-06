@@ -4,8 +4,7 @@ package com.keduw.app;
  * 接口鉴权
  *
  * @author hongshengfeng
- * @date 2020.02.03
- * @version 1.0.1
+ * @date 2020/02/03
  */
 public class AuthDef {
 

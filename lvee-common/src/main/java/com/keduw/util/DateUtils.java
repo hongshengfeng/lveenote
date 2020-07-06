@@ -12,7 +12,7 @@ import java.util.Date;
  * 日期格式化工具
  *
  * @author hongshengfeng
- * @date 2020.01.23
+ * @date 2020/01/23
  */
 public class DateUtils {
 

@@ -12,7 +12,7 @@ import org.yaml.snakeyaml.constructor.DuplicateKeyException;
  * 统一异常处理
  *
  * @author hongshengfeng
- * @date 2020.01.24
+ * @date 2020/01/24
  */
 @RestControllerAdvice
 public class ExceptionHandle {
