@@ -27,11 +27,6 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-zipkin</artifactId>
         </dependency>
-        <!-- 权限控制 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>
         <!-- redisson -->
         <dependency>
             <groupId>org.redisson</groupId>

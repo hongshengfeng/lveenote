@@ -12,14 +12,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Value("${lvee.security:true}")
-    private boolean isOpen;
-
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
-        if(!isOpen){
-            return;
-        }
         auth.inMemoryAuthentication().passwordEncoder(new BCryptPasswordEncoder())
                 .withUser(AuthDef.ACCT)
                 .password(new BCryptPasswordEncoder().encode(AuthDef.PASSWORD)).roles("USER");
@@ -27,9 +21,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        if(!isOpen){
-            return;
-        }
         http.httpBasic().and().authorizeRequests().anyRequest().fullyAuthenticated();
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     }

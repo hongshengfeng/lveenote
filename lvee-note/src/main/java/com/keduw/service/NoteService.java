@@ -10,5 +10,5 @@ import com.keduw.model.NoteDTO;
  */
 public interface NoteService {
 
-    NoteDTO info(String uuid) throws Exception;
+    NoteDTO info(String uuid);
 }
