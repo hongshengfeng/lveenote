@@ -9,19 +9,19 @@ import java.sql.Date;
 
 public class TermDTO {
 
-    private int id;
+    private Integer id;
     private String uuid;
-    private int userId;
+    private Integer userId;
     private String name;
     private Date createTime;
-    private int odds;
-    private int flag;
+    private Integer odds;
+    private Integer flag;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -33,11 +33,11 @@ public class TermDTO {
         this.uuid = uuid;
     }
 
-    public int getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 
@@ -57,19 +57,19 @@ public class TermDTO {
         this.createTime = createTime;
     }
 
-    public int getOdds() {
+    public Integer getOdds() {
         return odds;
     }
 
-    public void setOdds(int odds) {
+    public void setOdds(Integer odds) {
         this.odds = odds;
     }
 
-    public int getFlag() {
+    public Integer getFlag() {
         return flag;
     }
 
-    public void setFlag(int flag) {
+    public void setFlag(Integer flag) {
         this.flag = flag;
     }
 }

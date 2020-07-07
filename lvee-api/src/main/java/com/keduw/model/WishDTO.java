@@ -8,34 +8,34 @@ import java.sql.Date;
  */
 public class WishDTO {
 
-    private int id;
-    private int userId;
-    private int termId;
+    private Integer id;
+    private Integer userId;
+    private Integer termId;
     private String content;
     private Date createTime;
-    private int flag;
+    private Integer flag;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public int getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 
-    public int getTermId() {
+    public Integer getTermId() {
         return termId;
     }
 
-    public void setTermId(int termId) {
+    public void setTermId(Integer termId) {
         this.termId = termId;
     }
 
@@ -55,11 +55,11 @@ public class WishDTO {
         this.createTime = createTime;
     }
 
-    public int getFlag() {
+    public Integer getFlag() {
         return flag;
     }
 
-    public void setFlag(int flag) {
+    public void setFlag(Integer flag) {
         this.flag = flag;
     }
 }

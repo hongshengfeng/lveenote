@@ -9,7 +9,7 @@ import java.sql.Date;
 
 public class UserDTO {
 
-    private int id;
+    private Integer id;
     private String userName;
     private String password;
     private String nickName;
@@ -18,13 +18,13 @@ public class UserDTO {
     private Date loginTime;
     private String tips;
     private String inviteCode;
-    private int flag;
+    private Integer flag;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -92,11 +92,11 @@ public class UserDTO {
         this.inviteCode = inviteCode;
     }
 
-    public int getFlag() {
+    public Integer getFlag() {
         return flag;
     }
 
-    public void setFlag(int flag) {
+    public void setFlag(Integer flag) {
         this.flag = flag;
     }
 }
