@@ -1,6 +1,6 @@
 package com.keduw.service;
 
-import com.keduw.model.NoteDTO;
+import com.keduw.model.Note;
 
 /**
  * 笔记数据处理接口
@@ -10,5 +10,5 @@ import com.keduw.model.NoteDTO;
  */
 public interface NoteService {
 
-    NoteDTO info(String uuid);
+    Note info(String uuid);
 }

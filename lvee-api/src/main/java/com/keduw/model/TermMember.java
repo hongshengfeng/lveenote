@@ -6,13 +6,13 @@ import java.sql.Date;
  * @author hongshengfeng
  * @date 2020/07/05
  */
-public class WishDTO {
+
+public class TermMember {
 
     private Integer id;
-    private Integer userId;
     private Integer termId;
-    private String content;
-    private Date createTime;
+    private Integer userId;
+    private Date joinTime;
     private Integer flag;
 
     public Integer getId() {
@@ -23,14 +23,6 @@ public class WishDTO {
         this.id = id;
     }
 
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
-
     public Integer getTermId() {
         return termId;
     }
@@ -39,20 +31,20 @@ public class WishDTO {
         this.termId = termId;
     }
 
-    public String getContent() {
-        return content;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
-    public Date getCreateTime() {
-        return createTime;
+    public Date getJoinTime() {
+        return joinTime;
     }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public void setJoinTime(Date joinTime) {
+        this.joinTime = joinTime;
     }
 
     public Integer getFlag() {

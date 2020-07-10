@@ -1,7 +1,7 @@
 package com.keduw.controller;
 
 import com.keduw.common.R;
-import com.keduw.model.NoteDTO;
+import com.keduw.model.Note;
 import com.keduw.service.NoteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,7 +25,7 @@ public class NoteController extends BaseController{
 
     @GetMapping("/info/{uuid}")
     public R info(@PathVariable("uuid") String uuid) throws Exception{
-        NoteDTO note = noteService.info(uuid);
+        Note note = noteService.info(uuid);
         Map<String, Object> info = new HashMap<>();
         info.put("data", note);
         return R.ok(info);

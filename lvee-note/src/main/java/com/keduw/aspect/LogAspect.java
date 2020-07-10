@@ -1,7 +1,7 @@
 package com.keduw.aspect;
 
 import com.keduw.annotation.Log;
-import com.keduw.model.SysLogDTO;
+import com.keduw.model.SysLog;
 import com.keduw.util.HttpContextUtils;
 import com.keduw.util.IPUtils;
 import com.keduw.util.JsonUtils;
@@ -14,13 +14,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Method;
 import java.util.Date;
-import java.util.concurrent.SynchronousQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 
 /**
 
@@ -32,13 +29,16 @@ import java.util.concurrent.TimeUnit;
 public class LogAspect {
 
     private static final Logger logger = LoggerFactory.getLogger(LogAspect.class);
-    private static ThreadPoolExecutor executor;
 
-    @PostConstruct
-    public void init(){
-        executor = new ThreadPoolExecutor(5, Integer.MAX_VALUE, 60L,
-                TimeUnit.SECONDS, new SynchronousQueue<Runnable>());
-    }
+    private static ExecutorService executor = new ThreadPoolExecutor(1, 5, 60, TimeUnit.SECONDS,
+            new ArrayBlockingQueue<Runnable>(2000), new ThreadFactory() {
+        @Override
+        public Thread newThread(Runnable r) {
+            Thread thread = new Thread(r);
+            thread.setName("sys-log-thread");
+            return thread;
+        }
+    });
 
     @Pointcut("@annotation(com.keduw.annotation.Log)")
     public void logPointCut(){}
@@ -54,7 +54,7 @@ public class LogAspect {
     }
 
     private void saveSysLog(ProceedingJoinPoint joinPoint, long time){
-        SysLogDTO sysLog = new SysLogDTO();
+        SysLog sysLog = new SysLog();
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
         Method method = signature.getMethod();
         //注解上的描述

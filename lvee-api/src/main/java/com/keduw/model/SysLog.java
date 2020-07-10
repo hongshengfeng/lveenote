@@ -2,7 +2,7 @@ package com.keduw.model;
 
 import java.util.Date;
 
-public class SysLogDTO {
+public class SysLog {
 
     private Integer id;
     private String username;

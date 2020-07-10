@@ -5,9 +5,8 @@ import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity
-@Table(name = "lv_term")
-public class LvTermEntity {
-
+@Table(name = "kd_note_term", schema = "keduw", catalog = "")
+public class KdNoteTermEntity {
     private int id;
     private String uuid;
     private int userId;
@@ -18,7 +17,6 @@ public class LvTermEntity {
 
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getId() {
         return id;
     }
@@ -85,5 +83,24 @@ public class LvTermEntity {
 
     public void setFlag(int flag) {
         this.flag = flag;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        KdNoteTermEntity that = (KdNoteTermEntity) o;
+        return id == that.id &&
+                userId == that.userId &&
+                odds == that.odds &&
+                flag == that.flag &&
+                Objects.equals(uuid, that.uuid) &&
+                Objects.equals(name, that.name) &&
+                Objects.equals(createTime, that.createTime);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, uuid, userId, name, createTime, odds, flag);
     }
 }

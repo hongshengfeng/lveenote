@@ -1,8 +1,8 @@
 package com.keduw.service.impl;
 
-import com.keduw.entity.LvNoteEntity;
+import com.keduw.entity.KdNoteEntity;
 import com.keduw.jpa.repo.NoteRepo;
-import com.keduw.model.NoteDTO;
+import com.keduw.model.Note;
 import com.keduw.service.NoteService;
 import com.keduw.util.BeanUtils;
 import org.slf4j.Logger;
@@ -23,10 +23,10 @@ public class NoteServiceImpl implements NoteService {
     private NoteRepo noteRepo;
 
     @Override
-    public NoteDTO info(String uuid){
+    public Note info(String uuid){
         try {
-            LvNoteEntity info = noteRepo.findInfoByUuid(uuid);
-            return BeanUtils.copyProperties(info, NoteDTO.class);
+            KdNoteEntity info = noteRepo.findInfoByUuid(uuid);
+            return BeanUtils.copyProperties(info, Note.class);
         }catch (Exception e){
             logger.error("getInfo err", e);
         }

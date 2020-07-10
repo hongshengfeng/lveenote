@@ -2,10 +2,11 @@ package com.keduw.entity;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.Objects;
 
 @Entity
-@Table(name = "lv_term_member")
-public class LvTermMemberEntity {
+@Table(name = "kd_note_term_member", schema = "keduw", catalog = "")
+public class KdNoteTermMemberEntity {
     private int id;
     private int termId;
     private int userId;
@@ -14,7 +15,6 @@ public class LvTermMemberEntity {
 
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getId() {
         return id;
     }
@@ -63,4 +63,20 @@ public class LvTermMemberEntity {
         this.flag = flag;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        KdNoteTermMemberEntity that = (KdNoteTermMemberEntity) o;
+        return id == that.id &&
+                termId == that.termId &&
+                userId == that.userId &&
+                flag == that.flag &&
+                Objects.equals(joinTime, that.joinTime);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, termId, userId, joinTime, flag);
+    }
 }

@@ -13,6 +13,11 @@
     <packaging>jar</packaging>
 
     <dependencies>
+        <!-- 注册中心 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
         <!-- 自省和监控集成 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

@@ -7,7 +7,7 @@ import java.sql.Date;
  * @date 2020/07/05
  */
 
-public class NoteDTO {
+public class Note {
 
     private Integer id;
     private String uuid;

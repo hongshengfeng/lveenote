@@ -2,10 +2,11 @@ package com.keduw.entity;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.Objects;
 
 @Entity
-@Table(name = "lv_user")
-public class LvUserEntity {
+@Table(name = "kd_user", schema = "keduw", catalog = "")
+public class KdUserEntity {
     private int id;
     private String userName;
     private String password;
@@ -118,4 +119,25 @@ public class LvUserEntity {
         this.flag = flag;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        KdUserEntity that = (KdUserEntity) o;
+        return id == that.id &&
+                flag == that.flag &&
+                Objects.equals(userName, that.userName) &&
+                Objects.equals(password, that.password) &&
+                Objects.equals(nickName, that.nickName) &&
+                Objects.equals(icon, that.icon) &&
+                Objects.equals(regTime, that.regTime) &&
+                Objects.equals(loginTime, that.loginTime) &&
+                Objects.equals(tips, that.tips) &&
+                Objects.equals(inviteCode, that.inviteCode);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, userName, password, nickName, icon, regTime, loginTime, tips, inviteCode, flag);
+    }
 }

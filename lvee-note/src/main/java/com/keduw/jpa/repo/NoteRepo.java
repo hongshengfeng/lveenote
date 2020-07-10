@@ -1,26 +1,26 @@
 package com.keduw.jpa.repo;
 
-import com.keduw.entity.LvNoteEntity;
-import com.keduw.entity.QLvNoteEntity;
+import com.keduw.entity.KdNoteEntity;
+import com.keduw.entity.QKdNoteEntity;
 import com.keduw.jpa.common.QuerydslBaseRepo;
-import com.keduw.jpa.dao.NoteDao;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+/**
+ * @author hongshengfeng
+ * @date 2020/07/10
+ */
+
 @Component
-public class NoteRepo extends QuerydslBaseRepo<LvNoteEntity, QLvNoteEntity> {
+public class NoteRepo extends QuerydslBaseRepo<KdNoteEntity, QKdNoteEntity> {
 
-    @Autowired
-    private NoteDao noteDao;
-
-    public LvNoteEntity findInfoByUuid(String uuid){
+    public KdNoteEntity findInfoByUuid(String uuid){
         return queryFactory.select(n).from(n).where(n.uuid.eq(uuid)).fetchOne();
     }
 
     @Override
-    public QLvNoteEntity getEntityPath() {
+    public QKdNoteEntity getEntityPath() {
         return n;
     }
 
-    private QLvNoteEntity n = QLvNoteEntity.lvNoteEntity;
+    private QKdNoteEntity n = QKdNoteEntity.kdNoteEntity;
 }

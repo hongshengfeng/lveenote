@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8081
   servlet:
     context-path: /
     session:
@@ -9,7 +9,7 @@ server:
 
 spring:
   application:
-    name: lvee_note
+    name: lvee_security
   http:
     encoding:
       force: true
@@ -49,9 +49,6 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:9000/lvee_eureka/
-
-rockertmq:
-  namesrvAddr: 127.0.0.1:9876
 
 lvee:
   redis: true
