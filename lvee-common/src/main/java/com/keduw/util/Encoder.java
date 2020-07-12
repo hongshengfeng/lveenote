@@ -8,7 +8,7 @@ import java.net.URLEncoder;
 
 public class Encoder {
 
-	private static final Logger logger =  (Logger) LoggerFactory.getLogger(Encoder.class);
+	private static final Logger logger = LoggerFactory.getLogger(Encoder.class);
 
 	private Encoder() {
 		throw new AssertionError();

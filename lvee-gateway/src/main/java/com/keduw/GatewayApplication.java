@@ -2,16 +2,18 @@ package com.keduw;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 
 /**
  * @author hongshengfeng
- * @date 2020/07/10
+ * @date 2020/07/07
  */
 @SpringBootApplication
-public class SecurityApplication {
+@EnableZuulProxy
+public class GatewayApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SecurityApplication.class, args);
+		SpringApplication.run(GatewayApplication.class, args);
 	}
 
 }

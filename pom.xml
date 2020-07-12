@@ -14,14 +14,12 @@
         <module>lvee-api</module>
         <module>lvee-note</module>
         <module>lvee-gateway</module>
-        <module>lvee-security-server</module>
     </modules>
 
     <properties>
         <java.version>1.8</java.version>
         <lvee-api.version>1.0.1</lvee-api.version>
         <lvee-common.version>1.0.1</lvee-common.version>
-        <lvee-security.version>1.0.1</lvee-security.version>
         <springcloud.version>Greenwich.RELEASE</springcloud.version>
         <springboot.version>2.1.2.RELEASE</springboot.version>
         <mysql.version>5.1.46</mysql.version>
@@ -49,11 +47,6 @@
                 <groupId>com.keduw</groupId>
                 <artifactId>lvee-api</artifactId>
                 <version>${lvee-api.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.keduw</groupId>
-                <artifactId>lvee-security</artifactId>
-                <version>${lvee-security.version}</version>
             </dependency>
             <!-- SpringCloud -->
             <dependency>

@@ -48,10 +48,10 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:9000/lvee_eureka/
+      defaultZone: http://localhost:9000/eureka/
 
 rockertmq:
   namesrvAddr: 127.0.0.1:9876
 
 lvee:
-  redis: true
+  redis: false

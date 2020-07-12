@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "kd_auth_permission", schema = "keduw", catalog = "")
+@Table(name = "kd_auth_permission")
 public class KdAuthPermissionEntity {
     private int id;
     private int parentId;
@@ -17,6 +17,7 @@ public class KdAuthPermissionEntity {
 
     @Id
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getId() {
         return id;
     }

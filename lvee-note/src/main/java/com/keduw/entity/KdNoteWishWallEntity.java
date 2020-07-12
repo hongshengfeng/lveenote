@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity
-@Table(name = "kd_note_wish_wall", schema = "keduw", catalog = "")
+@Table(name = "kd_note_wish_wall")
 public class KdNoteWishWallEntity {
     private int id;
     private int userId;
@@ -16,6 +16,7 @@ public class KdNoteWishWallEntity {
 
     @Id
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getId() {
         return id;
     }

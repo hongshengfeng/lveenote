@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity
-@Table(name = "kd_auth_role", schema = "keduw", catalog = "")
+@Table(name = "kd_auth_role")
 public class KdAuthRoleEntity {
     private int id;
     private String name;
@@ -15,6 +15,7 @@ public class KdAuthRoleEntity {
 
     @Id
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getId() {
         return id;
     }

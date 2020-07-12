@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity
-@Table(name = "kd_note_term", schema = "keduw", catalog = "")
+@Table(name = "kd_note_term")
 public class KdNoteTermEntity {
     private int id;
     private String uuid;
@@ -17,6 +17,7 @@ public class KdNoteTermEntity {
 
     @Id
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getId() {
         return id;
     }
