@@ -1,11 +1,19 @@
 package com.keduw.filter;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.keduw.common.Errno;
+import com.keduw.common.R;
 import com.keduw.model.UrlAccess;
 import com.keduw.service.UrlService;
 import com.keduw.util.PathUtils;
+import com.keduw.util.TokenUtils;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
+import org.apache.commons.lang.StringUtils;
+import org.joda.time.DateTime;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.netflix.zuul.filters.support.FilterConstants;
 import org.springframework.stereotype.Component;
@@ -13,33 +21,43 @@ import org.springframework.util.StreamUtils;
 
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 /**
+ * 登录成功时创建token
+ *
  * @author hongshengfeng
  * @date 2020/07/12
  */
 @Component
 public class JwtAddTokenFilter extends ZuulFilter {
 
+    private static final Logger logger = LoggerFactory.getLogger(JwtAddTokenFilter.class);
+
     @Autowired
     private UrlService urlService;
 
+    @Autowired
+    private ObjectMapper objectMapper;
+
     @Override
     public String filterType() {
+        //在路由方法相应之后拦截
         return FilterConstants.POST_TYPE;
     }
 
     @Override
     public int filterOrder() {
-        return FilterConstants.SEND_RESPONSE_FILTER_ORDER - 1;
+        return FilterConstants.SEND_RESPONSE_FILTER_ORDER + 1;
     }
 
     @Override
     public boolean shouldFilter() {
         RequestContext context = RequestContext.getCurrentContext();
         String uri = context.getRequest().getRequestURI();
-        List<UrlAccess> accesses = urlService.getAllAccessUrl();
+        List<UrlAccess> accesses = urlService.getAccessUrl();
         if(accesses == null || accesses.isEmpty()){
             return true;
         }
@@ -57,24 +75,23 @@ public class JwtAddTokenFilter extends ZuulFilter {
         try {
             InputStream stream = context.getResponseDataStream();
             String body = StreamUtils.copyToString(stream, StandardCharsets.UTF_8);
-            System.out.println(body);
-            /*if (result.getCode() == Errno.OK) {
-                HashMap<String, Object> jwtClaims = new HashMap<String, Object>() {{
-                    put("userId", result.getData().get("userId"));
-                }};
-                Date expDate = DateTime.now().plusDays(7).toDate(); //过期时间 7 天
-                String token = jwtUtil.createJWT(expDate, jwtClaims);
-                //body json增加token
-                result.getData().put("token", token);
-                //序列化body json,设置到响应body中
-                body = objectMapper.writeValueAsString(result);
-                ctx.setResponseBody(body);
-
-                //响应头设置token
-                ctx.addZuulResponseHeader("token", token);
-            }*/
+            if(StringUtils.isBlank(body)){
+                return null;
+            }
+            R data = objectMapper.readValue(body, R.class);
+            //登录状态验证通过
+            if (data.get("code").equals(Errno.ACCESS)) {
+                HashMap<String, Object> claims = new HashMap<>();
+                claims.put("aid", data.get("aid"));
+                Date expireTime = DateTime.now().plusHours(1).toDate();
+                String token = TokenUtils.createToken(expireTime, claims);
+                data.put("token", token);
+                body = objectMapper.writeValueAsString(data);
+                context.setResponseBody(body);
+                context.addZuulResponseHeader("token", token);
+            }
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error("add token err", e);
         }
         return null;
     }

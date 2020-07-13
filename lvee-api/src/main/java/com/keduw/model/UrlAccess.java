@@ -15,6 +15,10 @@ public class UrlAccess {
     private Date createTime;
     private int flag;
 
+    public static class Flag{
+        public static final int IS_AUTH = 0x1;  //是否校验权限
+    }
+
     public int getId() {
         return id;
     }

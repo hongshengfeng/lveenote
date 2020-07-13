@@ -1,7 +1,7 @@
-package com.keduw.jpa.dao;
+package com.keduw.dao;
 
 import com.keduw.entity.KdNoteEntity;
-import com.keduw.jpa.common.CoreDao;
+import com.keduw.jpa.CoreDao;
 
 /**
  * @author hongshengfeng

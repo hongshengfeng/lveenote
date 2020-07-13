@@ -1,4 +1,4 @@
-package com.keduw.jpa.common;
+package com.keduw.jpa;
 
 import org.springframework.data.jpa.repository.support.JpaRepositoryImplementation;
 import org.springframework.data.repository.NoRepositoryBean;

@@ -1,8 +1,10 @@
-package com.keduw.jpa.common;
+package com.keduw.jpa;
 
 import com.querydsl.core.types.EntityPath;
 import com.querydsl.core.types.Path;
 import com.querydsl.core.types.Predicate;
+import com.querydsl.core.types.dsl.Expressions;
+import com.querydsl.core.types.dsl.NumberTemplate;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import com.querydsl.jpa.impl.JPAUpdateClause;
 import org.hibernate.metamodel.spi.MetamodelImplementor;
@@ -88,6 +90,36 @@ public abstract class QuerydslBaseRepo<T, Q extends EntityPath<T>> {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+    /**
+     * 位运算and
+     * @param arg1
+     * @param arg2
+     * @return
+     */
+    public static NumberTemplate<Integer> bitAnd(Object arg1, Object arg2) {
+        return Expressions.numberTemplate(Integer.class, "function('bitand', {0}, {1})", arg1, arg2);
+    }
+
+    /**
+     * 位运算or
+     * @param arg1
+     * @param arg2
+     * @return
+     */
+    public static NumberTemplate<Integer> bitOr(Object arg1, Object arg2) {
+        return Expressions.numberTemplate(Integer.class, "function('bitor', {0}, {1})", arg1, arg2);
+    }
+
+    /**
+     * 位运算xor
+     * @param arg2
+     * @param arg1
+     * @return
+     */
+    public static NumberTemplate<Integer> bitXor(Object arg1, Object arg2) {
+        return Expressions.numberTemplate(Integer.class, "function('bitxor', {0}, {1})", arg1, arg2);
     }
 
 }

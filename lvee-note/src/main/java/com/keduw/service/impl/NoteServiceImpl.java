@@ -1,7 +1,7 @@
 package com.keduw.service.impl;
 
 import com.keduw.entity.KdNoteEntity;
-import com.keduw.jpa.repo.NoteRepo;
+import com.keduw.repo.NoteRepo;
 import com.keduw.model.Note;
 import com.keduw.service.NoteService;
 import com.keduw.util.BeanUtils;
@@ -24,12 +24,7 @@ public class NoteServiceImpl implements NoteService {
 
     @Override
     public Note info(String uuid){
-        try {
-            KdNoteEntity info = noteRepo.findInfoByUuid(uuid);
-            return BeanUtils.copyProperties(info, Note.class);
-        }catch (Exception e){
-            logger.error("getInfo err", e);
-        }
-        return null;
+        KdNoteEntity info = noteRepo.findInfoByUuid(uuid);
+        return BeanUtils.copyProperties(info, Note.class);
     }
 }

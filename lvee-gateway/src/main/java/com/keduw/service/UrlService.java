@@ -10,6 +10,8 @@ import java.util.List;
  */
 public interface UrlService {
 
-    List<UrlAccess> getAllAccessUrl();
+    List<UrlAccess> getAccessUrl();
+
+    List<UrlAccess> getAuthUrl();
 
 }

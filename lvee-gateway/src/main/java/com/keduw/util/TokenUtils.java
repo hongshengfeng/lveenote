@@ -15,7 +15,7 @@ import java.util.Map;
  */
 public class TokenUtils {
 
-    private static final String SIGNING_KEY = "kdw_note";
+    private static final String SIGNING_KEY = "xian@123";
 
     /**
      * 生成token

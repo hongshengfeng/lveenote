@@ -18,9 +18,9 @@ import static java.lang.String.format;
 public class BeanUtils {
 
     public static <T> T copyProperties(Object source, Class<T> targetClass) {
-        /*if(source == null){
+        if(source == null){
             return null;
-        }*/
+        }
         T t = null;
         try {
             t = targetClass.newInstance();

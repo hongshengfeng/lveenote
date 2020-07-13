@@ -1,8 +1,8 @@
-package com.keduw.jpa.repo;
+package com.keduw.repo;
 
 import com.keduw.entity.KdNoteEntity;
 import com.keduw.entity.QKdNoteEntity;
-import com.keduw.jpa.common.QuerydslBaseRepo;
+import com.keduw.jpa.QuerydslBaseRepo;
 import org.springframework.stereotype.Component;
 
 /**
