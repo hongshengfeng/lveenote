@@ -11,7 +11,7 @@
  Target Server Version : 50728
  File Encoding         : 65001
 
- Date: 10/07/2020 16:11:16
+ Date: 13/07/2020 18:04:24
 */
 
 SET NAMES utf8mb4;
@@ -142,6 +142,24 @@ CREATE TABLE `kd_note_wish_wall`  (
 -- ----------------------------
 -- Records of kd_note_wish_wall
 -- ----------------------------
+
+-- ----------------------------
+-- Table structure for kd_url_access
+-- ----------------------------
+DROP TABLE IF EXISTS `kd_url_access`;
+CREATE TABLE `kd_url_access`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `url` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '不做拦截的路径',
+  `remark` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '备注',
+  `create_time` datetime(0) NOT NULL COMMENT '创建时间',
+  `flag` int(11) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of kd_url_access
+-- ----------------------------
+INSERT INTO `kd_url_access` VALUES (1, '/api/login/**', '登录请求', '2020-07-13 10:21:13', 0);
 
 -- ----------------------------
 -- Table structure for kd_user

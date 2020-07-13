@@ -1,41 +1,42 @@
 package com.keduw.model;
 
-import java.sql.Date;
+import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  * @author hongshengfeng
- * @date 2020/07/05
+ * @date 2020/07/13
  */
-public class Wish {
+public class NoteWishWall {
 
-    private Integer id;
-    private Integer userId;
-    private Integer termId;
+    private int id;
+    private int userId;
+    private int termId;
     private String content;
     private Date createTime;
-    private Integer flag;
+    private int flag;
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public Integer getUserId() {
+    public int getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(int userId) {
         this.userId = userId;
     }
 
-    public Integer getTermId() {
+    public int getTermId() {
         return termId;
     }
 
-    public void setTermId(Integer termId) {
+    public void setTermId(int termId) {
         this.termId = termId;
     }
 
@@ -55,11 +56,11 @@ public class Wish {
         this.createTime = createTime;
     }
 
-    public Integer getFlag() {
+    public int getFlag() {
         return flag;
     }
 
-    public void setFlag(Integer flag) {
+    public void setFlag(int flag) {
         this.flag = flag;
     }
 }

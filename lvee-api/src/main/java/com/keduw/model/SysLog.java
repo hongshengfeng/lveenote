@@ -1,7 +1,10 @@
 package com.keduw.model;
 
 import java.util.Date;
-
+/**
+ * @author hongshengfeng
+ * @date 2020/07/13
+ */
 public class SysLog {
 
     private Integer id;

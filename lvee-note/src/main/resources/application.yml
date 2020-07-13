@@ -48,7 +48,7 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:9000/eureka/
+      defaultZone: http://keduw:123456@localhost:9000/eureka/
 
 rockertmq:
   namesrvAddr: 127.0.0.1:9876

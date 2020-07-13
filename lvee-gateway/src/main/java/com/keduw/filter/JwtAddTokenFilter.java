@@ -1,9 +1,8 @@
 package com.keduw.filter;
 
-import com.keduw.app.URIFilterDef;
-import com.keduw.common.Errno;
+import com.keduw.model.UrlAccess;
+import com.keduw.service.UrlService;
 import com.keduw.util.PathUtils;
-import com.netflix.discovery.converters.Auto;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
@@ -12,11 +11,9 @@ import org.springframework.cloud.netflix.zuul.filters.support.FilterConstants;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StreamUtils;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
-import java.util.HashMap;
+import java.util.List;
 
 /**
  * @author hongshengfeng
@@ -26,7 +23,7 @@ import java.util.HashMap;
 public class JwtAddTokenFilter extends ZuulFilter {
 
     @Autowired
-    private URIFilterDef uriFilter;
+    private UrlService urlService;
 
     @Override
     public String filterType() {
@@ -42,8 +39,12 @@ public class JwtAddTokenFilter extends ZuulFilter {
     public boolean shouldFilter() {
         RequestContext context = RequestContext.getCurrentContext();
         String uri = context.getRequest().getRequestURI();
-        for (String pathPattern : uriFilter.initURI()) {
-            if (PathUtils.match(pathPattern, uri)) {
+        List<UrlAccess> accesses = urlService.getAllAccessUrl();
+        if(accesses == null || accesses.isEmpty()){
+            return true;
+        }
+        for (UrlAccess access : accesses) {
+            if (PathUtils.match(access.getUrl(), uri)) {
                 return false;
             }
         }

@@ -1,16 +1,21 @@
 server:
   port: 9000
-  enable-self-preservation: false
 
 spring:
   application:
     name: lvee-eureka
+  security:
+    user:
+      name: keduw
+      password: 123456
 
 eureka:
   instance:
-    hostname: localhost
+    hostname: localhost #实例名字
   client:
     register-with-eureka: false
     fetch-registry: false
     service-url:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:${server.port}/eureka/
+  server:
+    enable-self-preservation: false

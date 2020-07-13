@@ -1,27 +1,27 @@
 package com.keduw.model;
 
-import java.sql.Date;
+import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  * @author hongshengfeng
- * @date 2020/07/05
+ * @date 2020/07/13
  */
+public class NoteTerm {
 
-public class Term {
-
-    private Integer id;
+    private int id;
     private String uuid;
-    private Integer userId;
+    private int userId;
     private String name;
     private Date createTime;
-    private Integer odds;
-    private Integer flag;
+    private int odds;
+    private int flag;
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -33,11 +33,11 @@ public class Term {
         this.uuid = uuid;
     }
 
-    public Integer getUserId() {
+    public int getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(int userId) {
         this.userId = userId;
     }
 
@@ -57,19 +57,19 @@ public class Term {
         this.createTime = createTime;
     }
 
-    public Integer getOdds() {
+    public int getOdds() {
         return odds;
     }
 
-    public void setOdds(Integer odds) {
+    public void setOdds(int odds) {
         this.odds = odds;
     }
 
-    public Integer getFlag() {
+    public int getFlag() {
         return flag;
     }
 
-    public void setFlag(Integer flag) {
+    public void setFlag(int flag) {
         this.flag = flag;
     }
 }

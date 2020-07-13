@@ -20,20 +20,21 @@ import java.util.Map;
  * @author hongshengfeng
  * @date 2020/07/02
  */
-public class XssHttpServletRequestWrapper extends HttpServletRequestWrapper {
+public class XssHttpServletRequest extends HttpServletRequestWrapper {
 
-    private final static HTMLFilter htmlFilter = new HTMLFilter(); //html过滤
     private HttpServletRequest request;
+    private final static XssHtmlFilter htmlFilter = new XssHtmlFilter();
 
-    public XssHttpServletRequestWrapper(HttpServletRequest request) {
+    public XssHttpServletRequest(HttpServletRequest request) {
         super(request);
-        request = request;
+        this.request = request;
     }
 
     @Override
     public ServletInputStream getInputStream() throws IOException {
         //非json类型，直接返回
-        if(!MediaType.APPLICATION_JSON_VALUE.equalsIgnoreCase(super.getHeader(HttpHeaders.CONTENT_TYPE))){
+        String contentType = super.getHeader(HttpHeaders.CONTENT_TYPE);
+        if(StringUtils.isBlank(contentType) || !contentType.toLowerCase().contains(MediaType.APPLICATION_JSON_VALUE)){
             return super.getInputStream();
         }
 
@@ -131,8 +132,8 @@ public class XssHttpServletRequestWrapper extends HttpServletRequestWrapper {
      * @return
      */
     public static HttpServletRequest getOrgRequest(HttpServletRequest request) {
-        if (request instanceof XssHttpServletRequestWrapper) {
-            return ((XssHttpServletRequestWrapper) request).getOrgRequest();
+        if (request instanceof XssHttpServletRequest) {
+            return ((XssHttpServletRequest) request).getOrgRequest();
         }
         return request;
     }
