@@ -1,7 +1,11 @@
 package com.keduw.entity;
 
-import javax.persistence.*;
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
+
+import java.util.Collections;
 import java.util.Objects;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "kd_auth_permission")
@@ -98,21 +102,12 @@ public class KdAuthPermissionEntity {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        KdAuthPermissionEntity that = (KdAuthPermissionEntity) o;
-        return id == that.id &&
-                parentId == that.parentId &&
-                navMenu == that.navMenu &&
-                flag == that.flag &&
-                Objects.equals(menuName, that.menuName) &&
-                Objects.equals(buttonName, that.buttonName) &&
-                Objects.equals(url, that.url) &&
-                Objects.equals(path, that.path);
+        return EqualsBuilder.reflectionEquals(this, o, Collections.<String>emptyList());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, parentId, menuName, buttonName, navMenu, url, path, flag);
+        return HashCodeBuilder.reflectionHashCode(this, Collections.<String>emptyList());
     }
+
 }

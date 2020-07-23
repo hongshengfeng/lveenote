@@ -11,15 +11,16 @@
     <modules>
         <module>lvee-eureka</module>
         <module>lvee-common</module>
-        <module>lvee-api</module>
         <module>lvee-note</module>
         <module>lvee-gateway</module>
+        <module>lvee-mq</module>
+        <module>lvee-api</module>
     </modules>
 
     <properties>
         <java.version>1.8</java.version>
-        <lvee-api.version>1.0.1</lvee-api.version>
         <lvee-common.version>1.0.1</lvee-common.version>
+        <lvee-api.version>1.0.1</lvee-api.version>
         <springcloud.version>Greenwich.RELEASE</springcloud.version>
         <springboot.version>2.1.2.RELEASE</springboot.version>
         <mysql.version>5.1.46</mysql.version>
@@ -34,6 +35,7 @@
         <joda-time.version>2.10.5</joda-time.version>
         <kaptcha.version>2.3.2</kaptcha.version>
         <jjwt.version>0.9.1</jjwt.version>
+        <rocketMq.version>4.3.0</rocketMq.version>
     </properties>
 
     <dependencyManagement>
@@ -146,12 +148,7 @@
                 <artifactId>commons-codec</artifactId>
                 <version>${commons.codec.version}</version>
             </dependency>
-            <!-- 验证码 -->
-            <dependency>
-                <groupId>com.github.penggle</groupId>
-                <artifactId>kaptcha</artifactId>
-                <version>${kaptcha.version}</version>
-            </dependency>
+            <!-- jwt -->
             <dependency>
                 <groupId>io.jsonwebtoken</groupId>
                 <artifactId>jjwt</artifactId>
@@ -166,6 +163,12 @@
                         <artifactId>logback-classic</artifactId>
                     </exclusion>
                 </exclusions>
+            </dependency>
+            <!-- rocketMq -->
+            <dependency>
+                <groupId>org.apache.rocketmq</groupId>
+                <artifactId>rocketmq-client</artifactId>
+                <version>${rocketMq.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

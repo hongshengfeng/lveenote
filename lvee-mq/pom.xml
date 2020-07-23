@@ -8,7 +8,7 @@
         <version>1.0.1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>lvee-note</artifactId>
+    <artifactId>lvee-mq</artifactId>
     <version>1.0.1</version>
     <packaging>jar</packaging>
 
@@ -22,10 +22,6 @@
             <groupId>com.keduw</groupId>
             <artifactId>lvee-common</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.keduw</groupId>
-            <artifactId>lvee-api</artifactId>
-        </dependency>
         <!-- 注册中心 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -37,10 +33,15 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <!-- rocketMq -->
+        <dependency>
+            <groupId>org.apache.rocketmq</groupId>
+            <artifactId>rocketmq-client</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
-        <finalName>lvee-note</finalName>
+        <finalName>lvee-mq</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

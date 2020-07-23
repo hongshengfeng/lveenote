@@ -1,8 +1,12 @@
 package com.keduw.entity;
 
-import javax.persistence.*;
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
+
 import java.sql.Timestamp;
+import java.util.Collections;
 import java.util.Objects;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "kd_user")
@@ -121,23 +125,11 @@ public class KdUserEntity {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        KdUserEntity that = (KdUserEntity) o;
-        return id == that.id &&
-                flag == that.flag &&
-                Objects.equals(userName, that.userName) &&
-                Objects.equals(password, that.password) &&
-                Objects.equals(nickName, that.nickName) &&
-                Objects.equals(icon, that.icon) &&
-                Objects.equals(regTime, that.regTime) &&
-                Objects.equals(loginTime, that.loginTime) &&
-                Objects.equals(tips, that.tips) &&
-                Objects.equals(inviteCode, that.inviteCode);
+        return EqualsBuilder.reflectionEquals(this, o, Collections.<String>emptyList());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, userName, password, nickName, icon, regTime, loginTime, tips, inviteCode, flag);
+        return HashCodeBuilder.reflectionHashCode(this, Collections.<String>emptyList());
     }
 }

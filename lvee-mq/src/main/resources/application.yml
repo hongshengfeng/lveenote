@@ -1,0 +1,16 @@
+server:
+  port: 8083
+  servlet:
+    context-path: /
+    session:
+      timeout: 1200
+  jetty:
+    max-http-post-size: 52428800
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://keduw:123456@localhost:9000/eureka/
+
+rocketmq:
+  namesrvAddr: 172.16.0.0:9876

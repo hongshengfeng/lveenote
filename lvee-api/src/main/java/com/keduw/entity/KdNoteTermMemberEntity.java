@@ -1,7 +1,11 @@
 package com.keduw.entity;
 
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.Collections;
 import java.util.Objects;
 
 @Entity
@@ -66,18 +70,11 @@ public class KdNoteTermMemberEntity {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        KdNoteTermMemberEntity that = (KdNoteTermMemberEntity) o;
-        return id == that.id &&
-                termId == that.termId &&
-                userId == that.userId &&
-                flag == that.flag &&
-                Objects.equals(joinTime, that.joinTime);
+        return EqualsBuilder.reflectionEquals(this, o, Collections.<String>emptyList());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, termId, userId, joinTime, flag);
+        return HashCodeBuilder.reflectionHashCode(this, Collections.<String>emptyList());
     }
 }

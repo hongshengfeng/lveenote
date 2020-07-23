@@ -1,8 +1,12 @@
 package com.keduw.entity;
 
-import javax.persistence.*;
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
+
 import java.sql.Timestamp;
+import java.util.Collections;
 import java.util.Objects;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "kd_note")
@@ -99,21 +103,11 @@ public class KdNoteEntity {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        KdNoteEntity that = (KdNoteEntity) o;
-        return id == that.id &&
-                userId == that.userId &&
-                termId == that.termId &&
-                flag == that.flag &&
-                Objects.equals(uuid, that.uuid) &&
-                Objects.equals(content, that.content) &&
-                Objects.equals(createTime, that.createTime) &&
-                Objects.equals(endTime, that.endTime);
+        return EqualsBuilder.reflectionEquals(this, o, Collections.<String>emptyList());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, uuid, userId, termId, content, createTime, endTime, flag);
+        return HashCodeBuilder.reflectionHashCode(this, Collections.<String>emptyList());
     }
 }

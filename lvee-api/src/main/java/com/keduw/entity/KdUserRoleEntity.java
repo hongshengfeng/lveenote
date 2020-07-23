@@ -1,6 +1,10 @@
 package com.keduw.entity;
 
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
+
 import javax.persistence.*;
+import java.util.Collections;
 import java.util.Objects;
 
 @Entity
@@ -43,16 +47,11 @@ public class KdUserRoleEntity {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        KdUserRoleEntity that = (KdUserRoleEntity) o;
-        return id == that.id &&
-                userId == that.userId &&
-                roleId == that.roleId;
+        return EqualsBuilder.reflectionEquals(this, o, Collections.<String>emptyList());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, userId, roleId);
+        return HashCodeBuilder.reflectionHashCode(this, Collections.<String>emptyList());
     }
 }
