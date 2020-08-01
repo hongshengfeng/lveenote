@@ -13,4 +13,4 @@ eureka:
       defaultZone: http://keduw:123456@localhost:9000/eureka/
 
 rocketmq:
-  namesrvAddr: 172.16.0.0:9876
+  namesrvAddr: 127.0.0.1:9876

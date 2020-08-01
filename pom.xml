@@ -35,7 +35,7 @@
         <joda-time.version>2.10.5</joda-time.version>
         <kaptcha.version>2.3.2</kaptcha.version>
         <jjwt.version>0.9.1</jjwt.version>
-        <rocketMq.version>4.3.0</rocketMq.version>
+        <rocketMq.version>4.5.2</rocketMq.version>
     </properties>
 
     <dependencyManagement>
